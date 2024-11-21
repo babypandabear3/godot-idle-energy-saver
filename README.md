@@ -28,11 +28,10 @@ This plugin including this documentation, its source code and all other assets (
 
 ### Used 3rd party assets
 
-![Bottled Bolt Icon by Lorc](./addons/idle_energy_saver/bottled-bolt.svg)
+#### Bottled Bolt Icon
+
+<img src="./addons/idle_energy_saver/bottled-bolt.svg" alt="Bottled Bolt Icon by Lorc" width="64" height="64" />
 
 Credits for the bottled bolt icon which is licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/) go to [Lorc](https://lorcblog.blogspot.com/).  
 Source: https://game-icons.net/1x1/lorc/bottled-bolt.html
-
-
-
 
