@@ -52,6 +52,11 @@ signal exited_idle_state
 
 ##
 ## Helper variable to keep track of original value for
+## [member OS.low_processor_usage_mode].
+##
+var low_processor_usage_mode: bool
+##
+## Helper variable to keep track of original value for
 ## [member OS.low_processor_usage_mode_sleep_usec].
 ##
 var low_processor_usage_mode_sleep_usec: int
@@ -65,6 +70,7 @@ var max_fps: int
 func _ready() -> void:
 	# keep in mind original values as set in project settings
 	# in order to be able to reset them again later on
+	low_processor_usage_mode = OS.low_processor_usage_mode
 	low_processor_usage_mode_sleep_usec = OS.low_processor_usage_mode_sleep_usec
 	max_fps = Engine.max_fps
 
@@ -82,6 +88,7 @@ func _notification(what: int) -> void:
 ## Lowers the CPU/GPU usage by changing some settings.
 ##
 func _idle() -> void:
+	OS.low_processor_usage_mode = true
 	OS.low_processor_usage_mode_sleep_usec = idle_sleep_msec
 	Engine.max_fps = idle_max_fps
 
@@ -92,6 +99,7 @@ func _idle() -> void:
 ## Resets the CPU/GPU usage by restoring the original setting values.
 ##
 func _unidle() -> void:
+	OS.low_processor_usage_mode = low_processor_usage_mode
 	OS.low_processor_usage_mode_sleep_usec = low_processor_usage_mode_sleep_usec
 	Engine.max_fps = max_fps
 
